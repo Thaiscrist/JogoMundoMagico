@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Mundo Mágico</title>
+    <link href="./style.css" rel="stylesheet"> 
+</head>
+<body>
+    <h1 class="titulo">Jogo de Perguntas!</h1>
+    <ul class= "inicio">
+        <li class="cor"><a href="index.html" target="_blank" rel="noopener noreferrer">Início</a></li>
+        <li class="cor"><a href="avatar.html" target="_blank" rel="noopener noreferrer">Avatar</a></li>
+
+    </ul>
+
+    <div class="laguna">
+        <div class="laguna__personagem">
+            <div class="imgLaguna">
+                <img class=laguna src="./Steban.jpeg" alt="" srcset="" width="200px"height="200px" onclick="">
+            </div>
+            <div class="personagemnome">
+                Você escolheu: Steban!
+            </div>
+        </div>
+        <hr>
+        <div class="laguna__perguntabox" id="pergunta1Laguna">
+            <span>Pergunta 1: Foi avisado a Estebán que seu rei estava prestes morrer,  então, Estabán partiu em uma jornada para salvar seu rei. No caminho ele se debarou com uma bifurcação: Qual caminho Estebán deve escolher?</span>
+            <div class="laguna__perguntabox--pergunta">
+                <select name="pergunta1" id="pergunta1">
+                    <option value="A">A : Deixar o rei morrer</option>
+                    <option value="B">B : Caminho da Esquerda</option>
+                    <option value="C">C : Caminho da Direita</option>
+                </select>
+            </div>
+            <input type="button" value="Responder!" id="btnPergunta1" name="btnPergunta1">
+        </div>
+        <div class="laguna__perguntabox hide" id="pergunta2Laguna">
+            <span>Pergunta 2: Estebán conseguiu chegar a tempo de salvar seu rei. Quando chegou ao quarto do rei, ele foi infromado que como o rei nao tinha herdeiro, quem assumiria o trono se o rei morresse, seria o curandeiro. Esteban por sua vez, ficou pensativo:</span>
+            <div class="laguna__perguntabox--pergunta">
+                <select name="pergunta2" id="pergunta2">
+                    <option value="A">A : Salvar o rei, e deixar com que continue sua tirania</option>
+                    <option value="B">B : Assumir o trono</option>
+                </select>
+            </div>
+            <input type="button" value="Responder!" id="btnPergunta2" name="btnPergunta2">
+        </div>
+        <div class="laguna__perguntabox hide" id="pergunta3LagunaRei">
+            <span>Pergunta 3 : Você salvou o rei! Agradecido o rei lhe deu muitas riquezas e terras. Entretanto com grandes riquezas vem grandes responsabilidades. Você deverá mudar de para a cidade do reino e sair de sua tribo. Nesse caso você</span>
+            <div class="laguna__perguntabox--pergunta">
+                <select name="pergunta3" id="pergunta3">
+                    <option value="A">A : Se muda numa boa.</option>
+                    <option value="B">B : Fala que não quer se mudar</option>
+                </select>
+            </div>
+            <input type="button" value="Responder!" id="btnPergunta3" name="btnPergunta3">
+        </div>
+        <div class="laguna__perguntabox hide" id="pergunta3LagunaTrono">
+            <span>Pergunta 3 : Você virou rei! Como rei, qual será sua primeira ordem?</span>
+            <div class="laguna__perguntabox--pergunta">
+                <select name="pergunta3" id="pergunta3Rei">
+                    <option value="A">A : Ser mais tirano que rei.</option>
+                    <option value="B">B : Liberar comida ao povo.</option>
+                </select>
+            </div>
+            <input type="button" value="Responder!" id="btnPergunta3Rei" name="btnPergunta3Rei">
+        </div>
+        <div class="resultadoPositivo hide">
+            <span>
+                Parabéns você conseguiu ajudar Steban!
+            </span>
+        </div>
+        <div class="resultadoNegativo hide">
+            <span>
+                Você escolheu o caminho mais longo, e quando chegou, o rei ja havia morrido.
+            </span>
+        </div>
+        <div class="estebanViveEmPaz hide">
+            <span>
+                Estebán não quis ajudar a salvar seu rei, e portanto a vida continuou normalmente e vivendo em paz na sua tribo
+            </span>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    
+
+    var btnpergunta1 = document.querySelector('#btnPergunta1');
+    var btnpergunta2 = document.querySelector('#btnPergunta2');
+    var btnpergunta3 = document.querySelector('#btnPergunta3');
+    var btnpergunta3rei = document.querySelector('#btnPergunta3Rei');
+    var resultadoPositivo = document.querySelector('.resultadoPositivo');
+    var resultadoNegativo = document.querySelector('.resultadoNegativo');
+    var estebanViveEmPaz = document.querySelector('.estebanViveEmPaz');
+    
+    btnpergunta1.onclick = function() {
+        
+        var resposta = document.querySelector('#pergunta1');
+        var boxpergunta2 = document.querySelector('#pergunta2Laguna');
+        var boxpergunta1 = document.querySelector('#pergunta1Laguna');
+
+        if (resposta.value == 'A') {
+            boxpergunta1.classList.add('hide');
+            estebanViveEmPaz.classList.remove('hide');
+            alert('Estebán não quis ajudar a salvar seu rei, e portanto a vida continuou normalmente e vivendo em paz na sua tribo');
+
+        }
+        if (resposta.value == 'B') {
+            boxpergunta1.classList.add('hide');
+            resultadoNegativo.classList.remove('hide');
+            alert('O caminho mais longo foi o escolhido, e por isso o rei, quando Estebán chegou, ja havia falecido');
+
+        }
+        if (resposta.value == 'C') {
+            alert('Parabéns! Você escolheu a caminho mais curto, chegou a tempo para salvar seu rei');
+            boxpergunta2.classList.remove('hide');
+            boxpergunta1.classList.add('hide');
+            btnpergunta2.onclick = function() {
+                var resposta2 = document.querySelector('#pergunta2');
+
+                var boxpergunta2 = document.querySelector('#pergunta2Laguna');
+                var boxpergunta3 = document.querySelector('#pergunta3LagunaRei');
+                if (resposta2.value == 'A') {
+                        alert('Você salvou o rei!');
+                        boxpergunta3.classList.remove('hide');
+                        boxpergunta2.classList.add('hide');
+
+                        btnpergunta3.onclick = function() {
+
+                            var resposta3 = document.querySelector('#pergunta3');
+
+                            var boxpergunta2 = document.querySelector('#pergunta2Laguna');
+                            var boxpergunta3 = document.querySelector('#pergunta3LagunaRei');
+                            var resultado = document.querySelector('#resultado');
+
+                            if (resposta3.value == 'A') {
+                                alert("Parabéns você se mudou para o reino e viveu feliz para sempre!");
+                                boxpergunta3.classList.add('hide');
+                                resultadoPositivo.classList.remove('hide');
+
+
+                            }
+                            if (resposta3.value == 'B') {
+                                alert("Forca! O rei lhe enviou para a forca!");
+                                boxpergunta3.classList.add('hide');
+                                resultadoNegativo.classList.remove('hide');
+
+
+                            }
+                        };
+                    
+
+                }
+
+                if (resposta2.value == 'B') {
+                    
+                    var boxpergunta3 = document.querySelector('#pergunta3LagunaTrono');
+                    boxpergunta3.classList.remove('hide');
+                    boxpergunta2.classList.add('hide');
+                    alert('Você deixou o Rei morrer e acabou se tornando o novo Rei!');
+                    
+                    btnpergunta3rei.onclick = function() {
+
+                        var resposta3 = document.querySelector('#pergunta3Rei');
+                        var boxpergunta2 = document.querySelector('#pergunta2Laguna');
+                        var boxpergunta3 = document.querySelector('#pergunta3LagunaTrono');
+                        var resultado = document.querySelector('#resultado');
+
+                        if (resposta3.value == 'A') {
+                            alert("O povo lhe odeia, e acabou lhe assasinando. ");
+                            boxpergunta3.classList.add('hide');
+                            resultadoNegativo.classList.remove('hide');
+
+                        }
+                        if (resposta3.value == 'B') {
+                            alert("O povo lhe ama! Parabéns você é um bom rei!");
+                            boxpergunta3.classList.add('hide');
+                            resultadoPositivo.classList.remove('hide');
+                        }
+                    };
+                }
+            };
+        }
+        
+        
+    };
+
+
+    
+
+
+
+</script>

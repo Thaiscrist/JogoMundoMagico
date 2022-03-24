@@ -1,0 +1,111 @@
+.titulo{
+    text-align: center;
+    border: 2px solid black;
+    background-color: rgb(143, 173, 163);
+    
+}
+.inicio{
+    flex-direction: row;
+    display:flex;
+    align-items: center;
+    text-align: justify;
+    justify-content: space-around;
+    border-radius: 5px solid black;
+    margin-top: 2px;
+    padding: 20px;
+    list-style: none;
+    text-transform: uppercase;
+    line-height: 120px;
+}
+.cor{
+    margin-top: 20px;
+    text-align: center;
+    background-color: rgb(27, 126, 126);
+    width: 320px;
+    height: 120px;
+    border-radius: 5%;
+    justify-content: center;
+    border: 5px solid black;
+    
+}
+.laguna{
+    border-radius: 50%;
+}
+
+.steban{
+    border-radius: 50%;
+}
+
+.harumy{
+    border-radius: 50%;
+}
+.flexcontainer, .flexcontainerAvatar{
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    padding: 80px;
+    background-color: black;
+    
+}
+
+.flexcontainer img{
+    cursor: pointer;
+}
+
+.flexcontainer img:hover{
+    transform: scale(1.2);
+}
+
+.flexhistory{
+    padding: 30px;
+    color: white;
+    text-align: center;
+    width: 60%;
+}
+
+
+.laguna__personagem{
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    padding: 80px;
+}
+
+.laguna__perguntabox{
+    margin: 0 auto;
+    padding: 20px;
+    width: 550px;
+    border-radius: 8px;
+    background-color: lightgrey;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+.resultadoPositivo{
+    margin: 0 auto;
+    padding: 20px;
+    width: 400px;
+    border-radius: 8px;
+    background-color: darkgreen;
+    color: white;
+}
+
+.resultadoNegativo,
+.estebanViveEmPaz{
+    margin: 0 auto;
+    padding: 20px;
+    width: 400px;
+    border-radius: 8px;
+    background-color: darkred;
+    color: white;
+}

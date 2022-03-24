@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Mundo Mágico</title>
+    <link href="./style.css" rel="stylesheet"> 
+</head>
+<body>
+    <h1 class="titulo">Jogo de Perguntas!</h1>
+    <ul class= "inicio">
+        <li class="cor"><a href="index.html" target="_blank" rel="noopener noreferrer">Início</a></li>
+        <li class="cor"><a href="avatar.html" target="_blank" rel="noopener noreferrer">Avatar</a></li>
+
+    </ul>
+
+    <div class="laguna">
+        <div class="laguna__personagem">
+            <div class="imgLaguna">
+                <img class=laguna src="./Harumy.jpeg" alt="" srcset="" width="200px"height="200px" onclick="">
+            </div>
+            <div class="personagemnome">
+                Você escolheu: Harumy!
+            </div>
+        </div>
+        <hr>
+        <div class="laguna__perguntabox" id="pergunta1Laguna">
+            <span>Pergunta 1: Harumy estava na floresta quando avistou um humano, rapidamente tratou de se esconder, mas foi avistada por ele. Sabendo de sua fraqueza, resolveu fugir, mas algo inesperado aconteceu.</span>
+            <div class="laguna__perguntabox--pergunta">
+                <select name="pergunta1" id="pergunta1">
+                    <option value="A">A : Foi atacada pelo humano</option>
+                    <option value="B">B : Tropeçou, e se machucou</option>
+                    <option value="C">C : Sua curiosidade foi maior, e voltou para conversar com o humano</option>
+                </select>
+            </div>
+            <input type="button" value="Responder!" id="btnPergunta1" name="btnPergunta1">
+        </div>
+        <div class="laguna__perguntabox hide" id="pergunta2Laguna">
+            <span>Pergunta 2: Harumy estreitou laços com o humano e acabou se apaixonando. O humano por sua vez fez um convite para Harumy conhecer seus pais.</span>
+            <div class="laguna__perguntabox--pergunta">
+                <select name="pergunta2" id="pergunta2">
+                    <option value="A">A : Harumy aceita o convite</option>
+                    <option value="B">B : Harumy não aceita o convite</option>
+                </select>
+            </div>
+            <input type="button" value="Responder!" id="btnPergunta2" name="btnPergunta2">
+        </div>
+        <div class="laguna__perguntabox hide" id="pergunta3Laguna">
+            <span>Pergunta 3: Harumy foi pedida em casamento pelo humano:</span>
+            <div class="laguna__perguntabox--pergunta">
+                <select name="pergunta3" id="pergunta3">
+                    <option value="A">A : Aceita</option>
+                    <option value="B">B : Sai correndo</option>
+                    <option value="C">C : Não aceita</option>
+                </select>
+            </div>
+            <input type="button" value="Responder!" id="btnPergunta3" name="btnPergunta3">
+        </div>
+        <div class="resultadoPositivo hide">
+            <span>
+                Parabéns você conseguiu ajudar Harumy!
+            </span>
+        </div>
+        <div class="resultadoNegativo hide">
+            <span>
+                Que pena você não conseguiu ajudar Harumy!
+            </span>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    
+
+    var btnpergunta1 = document.querySelector('#btnPergunta1');
+    var btnpergunta2 = document.querySelector('#btnPergunta2');
+    var btnpergunta3 = document.querySelector('#btnPergunta3');
+    var resultadoPositivo = document.querySelector('.resultadoPositivo');
+    var resultadoNegativo = document.querySelector('.resultadoNegativo');
+    
+    btnpergunta1.onclick = function() {
+        
+        var resposta = document.querySelector('#pergunta1');
+        var boxpergunta2 = document.querySelector('#pergunta2Laguna');
+        var boxpergunta1 = document.querySelector('#pergunta1Laguna');
+        var pontospergunta1 = 0
+
+        if (resposta.value == 'A') {
+            alert('GAME OVER! Harumy foi atacada pelo humano e acabou morrendo.');
+            window.location.href = 'index.html';
+
+        }
+        if (resposta.value == 'B') {
+            alert('GAME OVER! Harumy muito frágil, bateu a cabeça numa pedra e faleceu.');
+            window.location.href = 'index.html';
+        }
+        if (resposta.value == 'C') {
+            alert('Parabéns! Sua curiosidade fez com que ela estreitasse laços com esse humano.');
+            boxpergunta2.classList.remove('hide');
+            boxpergunta1.classList.add('hide');
+            btnpergunta2.onclick = function() {
+                var resposta2 = document.querySelector('#pergunta2');
+
+                var boxpergunta2 = document.querySelector('#pergunta2Laguna');
+                var boxpergunta3 = document.querySelector('#pergunta3Laguna');
+                var pontospergunta2 = 0
+                if (resposta2.value == 'A') {
+                        alert('Harumy conheceu os pais do humano, e o humano resolveu pedir Harumy em casamento');
+                        boxpergunta3.classList.remove('hide');
+                        boxpergunta2.classList.add('hide');
+
+                        btnpergunta3.onclick = function() {
+
+                            var resposta3 = document.querySelector('#pergunta3');
+
+                            var boxpergunta2 = document.querySelector('#pergunta2Laguna');
+                            var boxpergunta3 = document.querySelector('#pergunta3Laguna');
+                            var resultado = document.querySelector('#resultado');
+                            var pontospergunta3 = 0
+
+                            if (resposta3.value == 'A') {
+                                alert("Parabéns Harumy e o humano se casaram, assim estreitando laços entre elfos e humanis, os quais viveram felizes para sempre!");
+                                boxpergunta3.classList.add('hide');
+                                resultadoPositivo.classList.remove('hide');
+
+                            }
+                            if (resposta3.value == 'B') {
+                                alert("Humano com raiva, decidiu matar Harumy que a acabou morrendo!");
+                                boxpergunta3.classList.add('hide');
+                                resultadoNegativo.classList.remove('hide');
+
+
+                            }
+                            if (resposta3.value == 'C') {
+                                alert("Humano com raiva, decidiu iniciar uma guerra contra os elfos!");
+                                boxpergunta3.classList.add('hide');
+                                resultadoNegativo.classList.remove('hide');
+
+                            }
+
+                        };
+                    
+
+                }
+                if (resposta2.value == 'B') {
+                    alert('GAME OVER!  O humano com raiva, ficou bravo e matou Harumy.');
+                    window.location.href = 'index.html';
+                    
+                }
+            };
+        }
+        
+        
+    };
+
+
+    
+
+
+
+</script>
